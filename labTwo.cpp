@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+//Name: -------    Lab ex#2: Practice with the assignment statement
+int main()
+{
+	//program example #1 using doubles
+	cout << "program example#1 " << endl;
+	double amount = 10.;    //notice in the error list, under warnings it tells you that you're assigning an 
+						  //int to a double, called coercion. Avoid coercion by adding a decimal point
+	cout << "amount is " << amount << endl;
+
+
+	//program example #2 shows integer arithmetic: addition 
+	cout << endl << "program example#2 " << endl;
+	int numb = 100; //coercion, assigning an double to an int. 
+	cout << "numb is " << numb << endl;  //What happens to the .7? 
+
+
+
+	//program example #3 computes the area of a triangle using the formula:  1/2basexheight 
+	cout << endl << "program example#3 " << endl;
+	double area, base, height;
+	//write the statements that will assign values to base and height 
+	base = 5.5;
+	height = 10.;
+	//add the statement that computes the area using the 
+	//formula area= 1/2basexheight     
+	//print the area     
+	//Check your answer with the calculator
+	area = 1 / 2. * (base * height);//do not forget the decimal point"."of 1 or 2
+	cout << "The Area is " << area << endl;
+
+
+//program example #4 shows division and remainder(%) 
+	cout << endl << "program example#4 " << endl;
+	//add the code that will print 11 divided by 3 
+	//add the code that will print the remainder of 11 divided by 3.
+	cout << "11 divided by 3 is "<<11 / 3 << endl;
+	cout << "11 remainder by 3 is " << 11 % 3 << endl;
+
+
+//Suppose you have $3.85 in pocket change. How many quarters could you have? How much change after
+//quarters are spent? 
+//Declare and assign this to a variable called change. We will use cents only no dollars. 
+	int change = 385, quarters, cents;
+	//Print the number of quarters there are. 
+	
+	//Hint: find the number of quarters by dividing change by 25. 
+	//Print the number of cents left over.
+	//Hint: find the remainder after dividing change by 25.
+	cout << endl << "program example#5 " << endl;
+	quarters = change / 25;//the maximun of quarters you can
+	cents = change % 25;//remaining number of pennys that you have
+	cout <<"the maximun of quarters is " <<quarters << endl;
+	cout << "the maximun of cents is " << cents << endl;
+
+	cout << endl << "program ended successfully " << endl;
+
+	system("pause");
+}
