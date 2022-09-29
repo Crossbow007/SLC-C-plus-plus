@@ -1,0 +1,53 @@
+#include <iostream> 
+#include <iomanip> 
+#include <string> 
+using namespace std;
+
+/* Name: Kevin Gao       Lab Exercise #3: input/output
+
+If you like, you can complete this exercise on your own.
+I will walk through the changes during the lab. You can check to see if youâ€™re doing it right.
+The following program asks a user for his/her name and the number of text messages sent.
+
+It then computes the cost for the text messages and prints the following:
+<-------20-----><----10---><-----10-----><-----10----->
+Name             # of texts     Cost/text    Total Cost
+
+J. Doe         40          .10          4.00
+*/
+
+int main()
+{
+	//housekeeping: declare variables, a constant for cost per text and set output rules        
+	string name;
+	int noTexts;
+	double totalCost;
+	const double TEXT_COST=.1;
+	cout << fixed<<setprecision(2);
+		//input: ask user for name and number of text messages    
+	cout << "What is your name? ";
+	getline(cin, name);
+	cout << "Enter number of texts: ";
+		cin >> noTexts;
+	//processing: compute cost by multiplying number of texts by cost per text 
+	totalCost = noTexts * TEXT_COST;
+	//output: align data in columns, add a blank line after the title, left justify name    
+	cout << setw(20)<<left<<"Name" 
+		 <<setw(10) << right << "# of texts"
+		 <<setw(10) << "Cost/text"
+		 <<setw(10) << "TotalCost" << endl;
+	cout << setw(20) << left << name 
+		 << setw(10) << right << noTexts
+		 << setw(10) << TEXT_COST
+		 << setw(10) << totalCost << endl;
+		cout << endl << "Program ended successfully" << endl;
+	system("pause");
+}
+/*What is your name? Kevin Gao
+Enter number of texts: 90
+Name                # of texts Cost/text TotalCost
+Kevin Gao                   90      0.10      9.00
+
+Program ended successfully
+Press any key to continue . . .
+*/
