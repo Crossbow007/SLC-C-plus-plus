@@ -1,0 +1,20 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+//Kevin Gao 
+int main()
+{
+	cout << fixed << setprecision(1);
+	int radius;
+	double area;
+	const double PI = 3.14;
+	cout << "Please input the radius number: ";
+	cin >> radius;
+		area = PI * radius * radius;
+	cout <<right<<setw(6) << "radius"
+		<<setw(12) << "area" << endl;
+	cout << setw(6) << radius
+		<< setw(12) << area << endl;
+		system("pause");
+}
