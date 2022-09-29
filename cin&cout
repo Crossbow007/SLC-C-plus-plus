@@ -1,0 +1,34 @@
+#include<iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+// learning anout formatted output
+int main()
+{
+	cout << fixed;//output in non-scientific notation
+	cout << setprecision(3);
+	double amt = 100.44444444;
+	cout << amt<<endl;
+	cout << setprecision(1);
+	cout << 5.888888 << endl << endl;
+	//print in cell aka columns
+	string name = "kevin Gao";
+	cout << left<<setw(6)<<"name:" 
+		 <<setw(10)<< name << endl;
+	//real numbers in columns
+	cout << setprecision(3);
+	cout <<right <<setw(6) << 9.54 << endl;
+	//user input
+	string studentName;
+	int studentNum;
+	cout << "please inter student name: ";
+	//cin >> studentName;//sometime has issue when there is aspace
+	getline(cin, studentName);//allow space
+
+	cout << "please enter a student number: ";
+	cin >> studentNum;
+	cout << "student name is : " << studentNum << endl;
+
+	system("pause");
+
+}
