@@ -1,0 +1,58 @@
+#include <iostream>;
+#include<string>;
+#include<iomanip>;
+using namespace std;
+// Kevin Gao Lab 4 excercise
+/**********************************************************
+Lab Exercise #4:  Correct the syntax and run time errors
+This program calculates and prints an employee's pay
+Help:  First, before trying to run the program, try to find
+and correct as many errors as you can.
+
+Hint: This program appears all green. Which means it is a comment.
+Youâ€™ll need to end the comment. C++ is case sensitive.
+Donâ€™t forget the header files! Next, try running the program.
+Click on View>Error List and work  through each error from the first one down.
+After you have corrected the errors, run it again.
+Compare the answer calculated by the computer with a calculator.
+
+Hint: all programs follow input-process-output order.
+If you still canâ€™t find all of the errors, compare the code
+to a program that works. Often itâ€™s the smallest errors that are missed.
+******************************************************************/
+
+int main()
+{
+//housekeeping
+string employeeName="Robert Goulet";
+int employeeHours;
+double totalPay;
+char dept;
+const double PAYRATE = 15.50;
+cout << fixed << setprecision(2);
+
+//input
+employeeHours = 44;
+dept = 'A';
+
+//processing  
+totalPay = employeeHours * PAYRATE;
+
+//processing
+totalPay = employeeHours * PAYRATE;
+
+//output
+cout << left << setw(20) << "Name" << setw(15) << "Department" << right << setw(15) << "Pay" <<endl<< endl;
+cout << left << setw(20) << employeeName << setw(15) << dept << right << setw(15) << totalPay << endl << endl;
+cout << "program ended successfully" << endl;
+
+system("pause");
+}
+/*
+Name                Department                 Pay
+
+Robert Goulet       A                       682.00
+
+program ended successfully
+Press any key to continue . . .
+*/
