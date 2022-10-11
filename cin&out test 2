@@ -1,0 +1,38 @@
+#include<iostream>;
+#include<iomanip>;
+#include<string>;
+using namespace std;
+//Kevin Gao  Practice input and output
+int main()
+{
+	//house keepping
+	int age,hurs=20;
+	char gender;
+	double income,TotalPay;
+	string name;
+	const double HURPAY = 20.50;
+	cout << fixed << setprecision(4);
+
+	//input
+	cout << "please input your age: " << endl;
+	cin >> age;
+	cout << "please input your gender(M/F):" << endl;
+	cin.ignore(90, '\n');
+	cin>>gender;
+	cout << "Please input your name:" << endl;
+	cin.ignore(90,'\n');
+	getline(cin, name);
+
+	//process
+
+	TotalPay = HURPAY * hurs;
+	//output
+	cout << left << setw(50) << "Name" << setw(10) 
+		<< "Age" << right << setw(10) << "Gender" 
+		<< setw(20) << "TotalPay" << endl << endl;
+	cout << left << setw(50) << name << setw(10)
+		<< age<< right << setw(10) << gender
+		<< setw(20) << TotalPay << endl << endl;
+
+	system("pause");
+}
