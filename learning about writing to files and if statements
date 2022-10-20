@@ -1,0 +1,96 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+#include<fstream>
+
+using namespace std;
+//learning about writing to files and if statements
+int main()
+{
+	cout << fixed;
+	double lecture = 2.0;
+	ofstream fout("lecture.txt");
+	if (!fout.is_open())//check the file is open or not
+	{cout<<"file did not open"<<endl;
+	system("pause");
+	exit(-1);
+	}
+	//ofstream output("breakweek.dat");
+	fout << fixed;
+	//output << fixed;
+	fout << "writing to a file" << endl;
+	fout << "this is lecture" << lecture << endl;
+	//output << "this is lecture" << lecture << endl;
+	cout << "this is lecture" << lecture << endl;
+	system("type lecture.txt");
+
+	//if statements
+
+
+	//if (boolean expression)
+	//{
+		//code that is executed if boolean expression is true
+	//}
+
+
+	char response;
+	cout << "did you do well on the test?";
+	cin >> response;
+	if (response=='Y')//case sensetive
+	{
+		cout << "that is great!!!" << endl;
+		cout << "hope you do well on the next test too" << endl;
+	}
+
+
+	int age = 45;
+	double price = 50.50;
+	age = age + 20;//age+=20
+	age -= 20;//substract 20 from age
+	if (age >= 65)
+	{
+	   price = price * .85;
+	}//if there is only a line in bracket, we can cancle the brace bracket
+	if (age == 100)
+		price = 0;
+
+	cout << "this item price is:" << price << endl;
+	int noPet = 2;
+	cout << endl << "did you buy another pet? Y/N";
+	cin >> response;
+	if (response == 'Y')
+		noPet++;//increment- adds 1 to the value
+		else
+
+		cout << "woooo" << endl;
+
+	cout << "you have " << noPet <<" number of pets"<< endl;
+	noPet--;//decreament--subtract 1 from the value
+	
+
+	double test1 = 75., test2 = 85., test3 = 45.;
+	if ((test1 + test2 + test3) / 3 > 50)
+
+		cout << "you passed the course" << endl;
+
+	else
+
+		cout << "you did't it";
+
+
+	system("pause");
+}
+/*
+this is lecture2.000000
+writing to a file
+this is lecture2.000000
+did you do well on the test?Y
+that is great!!!
+hope you do well on the next test too
+this item price is:50.500000
+
+did you buy another pet? Y/NY
+you have 3 number of pets
+you passed the course
+Press any key to continue . . .
+*/
