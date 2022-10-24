@@ -1,0 +1,82 @@
+#include <iostream>
+#include <string>
+#include <ctime> //necessary for random number generator
+#include <fstream>
+using namespace std;
+//Lab ex#6:guessing game = allow the user 2 guesses only, write an assessment to a file
+// Kevin Gao
+
+int main()
+{
+	//housekeeping
+	int guess, number;
+	int noTries = 1;
+	string name;
+	srand((unsigned)time(0)); //start the random number generator
+	ofstream fout("guess.out");
+	if (!fout.is_open())
+	{
+		cout << "file did not open properly, terminating" << endl;
+		system("pause");
+		exit(666);
+	}
+
+	//add an if statement to ensure the file opened successfully
+	number = rand() % 10 + 1; //randomly generate the computer's guess
+	//input
+	cout << "what is your name? ";
+	getline(cin, name);
+	cout << "Hello " << name << " Let us play the guessing game! " << endl;
+	cout << "I am thinking of a number from 1-10 Can you guess it?";
+	cin >> guess;
+	//processing
+	//add an if statement to check if did not guess it correctly
+	if (number!=guess)
+	{
+		//add one to the number of tries
+		cout << "Wrong. Guess again ";
+		cin >> guess;
+		noTries += 1;
+	}
+	if (number == guess)
+		//add an if statement to check if guessed it
+	{
+		cout << char(1) << " You guessed it! "; //look what char(1) does!!!
+	}
+	//add an if statement to only print wrong! if didn't guess it
+	if (number != guess)
+	{
+		cout << "Wrong! The number was " << number; //only print if didn't guess it
+		cout << endl;
+	}
+	//output to the file
+	fout << "============================" << endl;
+	fout << "results of guessing game for " << name << endl;
+	fout << "Number to guess: " << number << endl;
+	fout << "Number of tries: " << noTries << endl;
+	//add an if to check if number was guessed first time
+	if(noTries==1)
+	fout << "Good guess, you must have esp! ";
+	//add an if to check if number was not guessed
+	if (number!=guess)
+	fout << "Number not guessed ";
+	fout << endl;
+	fout << "============================" << endl;
+	cout << "Game over" << endl;
+	system("type guess.out");
+	system("pause");
+}
+
+/*what is your name? Kevin Gao
+Hello Kevin Gao Let us play the guessing game!
+I am thinking of a number from 1-10 Can you guess it?4
+Wrong. Guess again 7
+Wrong! The number was 8
+Game over
+============================
+results of guessing game for Kevin Gao
+Number to guess: 8
+Number of tries: 2
+Number not guessed
+============================
+Press any key to continue . . .*/
