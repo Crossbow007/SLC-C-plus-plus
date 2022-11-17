@@ -1,0 +1,72 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+#include<fstream>
+using namespace std;
+int main()
+{
+	const double  RATE = 10.25;
+	int noEmps = 0;
+	double pay, workHours, totalPay = 0.;
+	string name;
+	ofstream fout("myfile.dat");
+
+	if (!fout.is_open())
+	{
+		cout << "error opening file";
+		system("pause");
+		exit(666);
+	}
+	fout << fixed << setprecision(2);
+	fout << setw(20) << "employee name" << setw(20) << "pay" << endl << endl;
+	cout << "please input your name:" << endl;
+	getline(cin, name);
+	while (!cin.eof())
+	{
+		
+		cout << "please input work hours:";
+		cin >> workHours;
+		while (workHours<0||workHours>50)//valid data test
+		{
+			cout << "input error! please input the number between 0 to 50 ";
+			cin >> workHours;
+		}
+		pay = workHours * RATE;
+		totalPay += pay;
+		noEmps++;
+		
+		fout << setw(20) << name << setw(20) << pay << endl << endl;
+		cout << "please input your name, or ^z to quit" << endl;
+		cin.ignore(80, '\n');
+		getline(cin, name);
+	}
+	if (noEmps > 0) {
+		fout << "evarage pay is:" << totalPay / noEmps << endl;
+	}
+	cout << "the program run sucessfully!" << endl;
+	system("type myfile.dat");
+	system("pause");
+}
+/*
+please input your name:
+kevin
+please input work hours:23
+please input your name, or ^z to quit
+allen
+please input work hours:33
+please input your name, or ^z to quit
+sara
+please input work hours:1
+please input your name, or ^z to quit
+^Z
+the program run sucessfully!
+	   employee name                 pay
+
+			   kevin              235.75
+
+			   allen              338.25
+
+				sara               10.25
+
+evarage pay is:194.75
+Press any key to continue . . .*/
