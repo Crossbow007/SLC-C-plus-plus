@@ -1,0 +1,161 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+//template for Module #1 Teaching lab (dowhile and switch )
+// Kevin Gao
+int main()
+{
+	//Task #1:  do while loop
+
+	srand((unsigned)time(0));
+	int number = rand() % 10 + 1;
+	int guess;
+	char again;
+
+	cout << "Play the guessing game\n\n";
+	//Step 1. add a do while loop here (Look for a comment stating when to end this do while loop
+	
+	do
+	{
+		cout << "I'm thinking of a number from 1 to 10. ";
+	
+	
+
+	//Step 2. add a second do while loop 
+	
+	do
+	{ 
+	cout << "Try to guess it ";
+	cin >> guess;
+	while (guess < 1 || guess >10 || cin.fail())
+	{
+		cin.clear();
+		cin.ignore(80, '\n');
+		cout << "number must be 1-10 reenter ";
+		cin >> guess;
+	}
+	if (number < guess)
+		cout << "too high! ";
+	else if (number > guess)
+		cout << "too low! ";
+	else
+		cout << "Correct! ";
+	} while (number!=guess);
+	//Step 2. make user guess again if they didn’t guess the number (complete second do while)
+	
+	cout << "The number was " << number << endl;
+
+	//Step 3. ask user if they want to guess a different number (allow y or n)
+	
+	cout << "do you want to guess again? y or n: ";
+	cin >> again;
+	again = tolower(again);
+	
+   //Step 1. End the first dowhile loop if n is input 
+	} while (again!='n');
+
+ //Task #2: of switch - what is wrong?
+
+	int code;
+	cout << "What is your program code? ";
+	cin >> code; //Step 1. validate user input
+	while ( cin.fail())
+	{
+		cin.clear();
+		cin.ignore(80, '\n');
+		cout << "number must be a integer number,re-enter: ";
+		cin >> code;
+	}
+	cout << "You are majoring in: ";
+	switch (code)			//Step 2. Why are we getting a syntax error here (red squiggly lines)
+	{
+	case 458:
+		cout << "CPA";
+		break;
+	case 457:
+		cout << "CN&TS";
+		break;
+	default:					//default is optional 
+		cout << "unknown program entered";
+	}
+	cout << endl;
+
+	//Step 3. is there an error with the above switch? if so what is it and FIX IT!
+
+
+	//Task#3: of switch - how does it work?
+
+	char pet;
+	cout << "enter C/D ";
+	cin >> pet;  //Step 1. validate user input
+	while (pet != 'c' && pet != 'C' &&
+		pet != 'd' && pet != 'D')
+	{
+		cout << "number must be a C or D,re-enter: ";
+		cin >> pet;
+	}
+	cout << "Pet entered: ";
+	//pet = toupper(pet);
+	
+	switch (pet)
+	{
+	case 'C': 
+	case 'c'://Step 2. handle lower case too
+		cout << "Cat";
+		break;
+	default:
+		cout << "Dog";
+		
+	}
+	//Step 3 - improve the efficiency of the above switch statement
+
+	//Example#4: rewrite nested if as a switch stmt
+	double gpa;
+	char grade;
+	cout << "\n\nWhat is your letter grade ";
+	cin >> grade;
+	switch (grade)
+	{
+	case 'A':
+	case 'a':
+		gpa = 4.0;
+		break;
+	case 'B':
+	case 'b':
+		gpa = 3.0;
+		break;
+	case 'C':
+	case 'c':
+		gpa = 2.0;
+		break;
+	case 'D':
+	case 'd':
+		gpa = 1.0;
+		break;
+	default:
+		gpa = 0.0;
+	}
+	
+	cout << "Your gpa is " << gpa << endl;
+
+
+	cout << "end of examples " << endl;
+	system("pause");
+}
+/*
+Play the guessing game
+
+I'm thinking of a number from 1 to 10. Try to guess it 4
+too high! Try to guess it 3
+Correct! The number was 3
+do you want to guess again? y or n: n
+What is your program code? 457
+You are majoring in: CN&TS
+enter C/D c
+Pet entered: Cat
+
+What is your letter grade a
+Your gpa is 4
+end of examples
+Press any key to continue . . .
+*/
